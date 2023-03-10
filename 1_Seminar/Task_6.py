@@ -11,7 +11,7 @@ while (True):
     if number.isdigit() == False:
         print("Введите число!")
     elif int(number) < 100000 or int(number) > 999999:
-        print("Введите шестизначное число!")  
+        print("Введите шестизначное число!")
     else:
         break
 
@@ -19,16 +19,16 @@ right_side = 0
 left_side = 0
 initNumber = number
 
-while(int(number) != 0):
+while (int(number) != 0):
     temp = int(number) % 10
-    if(len(str(number)) > 3):
+    if (len(str(number)) > 3):
         right_side = right_side + temp
         number = int(number) // 10
     else:
         left_side = left_side + temp
         number = int(number) // 10
 
-if(right_side == left_side):
+if (right_side == left_side):
     print(initNumber, '->', 'yes')
 else:
     print(initNumber, '->', 'no')
