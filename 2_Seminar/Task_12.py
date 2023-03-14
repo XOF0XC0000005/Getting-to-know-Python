@@ -1,10 +1,10 @@
-a, b = map(int, input("a, b = ").split())
-c = 0
-for i in range(a + b):
-    if c:
+x, y = map(int, input("X, Y = ").split())
+flag = False
+for i in range(x + y):
+    if flag:
         break
-    for j in range(a + b):
-        if i + j == a and i * j == b:
-            c = 1
+    for j in range(x + y):
+        if i + j == x and i * j == y:
+            flag = True
             print(*sorted([i, j]))
             break
