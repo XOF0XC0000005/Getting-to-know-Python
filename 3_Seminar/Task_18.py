@@ -12,7 +12,7 @@
 import random
 
 array_length = input("Введите длину массива: ")
-array = [random.randint(1, 40) for i in range(int(array_length))]
+array = [random.randint(1, 40) for _ in range(int(array_length))]
 print(array)
 find = input("Введите отслеживаемое число: ")
 
@@ -23,4 +23,6 @@ for i in range(len(array) - 1):
     if abs(int(find) - array[i + 1]) < temp:
         temp = abs(int(find) - array[i + 1])
         result = array[i + 1]
+        if temp == abs(int(find) - array[i + 1] and result > array[i + 1]):
+            result = array[i + 1]
 print('-> ' + str(result))
