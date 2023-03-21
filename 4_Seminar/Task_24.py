@@ -16,31 +16,30 @@
 # 9
 import random
 
-beds_number = input("Введите количество грядок: ")
+while(True):
+    beds_number = input("Введите количество грядок: ")
+    if(beds_number.isdigit() == False or int(beds_number) < 3):
+        print("Введите ЧИСЛО от трех")
+    else:
+        break
+
 beds_array = [random.randint(1, 100) for _ in range(int(beds_number))]
 print(beds_array)
 
-if(len(beds_array) == 1):
-    result = beds_array[0]
-    result_position = 1
-elif(len(beds_array) == 2):
-    result = beds_array[0] + beds_array[1]
-    result_position = 1
-else:
-    last_element = beds_array[-2]
-    last_element_index = -2
-    next_element = beds_array[0]
-    next_element_index = 0
-    temp = beds_array[-2] + beds_array[-1] + beds_array[0]
-    result = temp
-    result_position = beds_array[-1]
-    for i in range(-2, len(beds_array) - 3):
-        next_element = beds_array[next_element_index + 1]
-        next_element_index += 1
-        temp += next_element - last_element
-        last_element = beds_array[last_element_index + 1]
-        last_element_index += 1
-        if result < temp:
-            result = temp
-            result_position = next_element_index
+last_element = beds_array[-2]
+last_element_index = -2
+next_element = beds_array[0]
+next_element_index = 0
+temp = beds_array[-2] + beds_array[-1] + beds_array[0]
+result = temp
+result_position = 1
+for i in range(-2, len(beds_array) - 3):
+    next_element = beds_array[next_element_index + 1]
+    next_element_index += 1
+    temp += next_element - last_element
+    last_element = beds_array[last_element_index + 1]
+    last_element_index += 1
+    if result < temp:
+        result = temp
+        result_position = next_element_index
 print("Максимальное количество ягод: " + str(result) + "\nНужно начинать с куста под номером: " + str(result_position))
