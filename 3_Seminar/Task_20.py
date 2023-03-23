@@ -40,5 +40,3 @@ elif(language == "ru"):
     print(f'{word} -> {check_language_dict(ru_dict)}')
 else:
     print("Программа не поддерживает данный язык!")
-
-
